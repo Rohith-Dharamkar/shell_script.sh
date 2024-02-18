@@ -1,0 +1,26 @@
+######---------Shell Scripting Tutorial for Beginners 1 - Introduction------####
+who to see working on which shell command : cat/etc/shells
+ To get the location of your bash . Command : $which bash
+ ######--------Shell Scripting Tutorial for Beginners 2 - using Variables and Comments-------######
+In Linux (Shell), there are two types of variable:
+(1) System variables - Created and maintained by Linux itself. This type of variable defined in CAPITAL LETTERS.
+(2) User defined variables (UDV) - Created and maintained by user. This type of variable defined in lower letters.
+Shell variables 
+- var refers to the name, $var to the value
+    - t = 100  #Sets var t to value 100
+    - echo ”\$t = $t” #will print: $t = 100
+- Remove a variable with unset var
+- Names begin with alpha characters and include alpha, numeric, or underscore
+#-------------Shell Scripting Tutorial for Beginners 3 - Read User Input----------####################
+Read command - The read command allows you to prompt for input and store it in a variable. shell allows to prompt for user input.
+Syntax: 
+read varname [more vars] 
+or
+read –p "prompt" varname [more vars]
+words entered by user are assigned to varname and “more vars”
+last variable gets rest of input line.
+
+
+
+
+ 
