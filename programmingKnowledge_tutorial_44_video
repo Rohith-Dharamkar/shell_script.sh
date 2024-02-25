@@ -376,6 +376,213 @@ Multiplication = 100
 Division = 4
 #!/bin/bash
 ####################-----------Shell Scripting Tutorial for Beginners 11 - Floating point math operations in bash | bc Command-----#######
+num1=20
+num2=5
+
+echo $(( num1 + num2 ))
+echo $(( num1 - num2 ))
+echo $(( num1 * num2 ))
+echo $(( num1 / num2 ))
+echo $(( num1 % num2 ))
+____________________________________________________________________________________
+echo $(expr $num1 + $num2 )
+echo $(expr $num1 - $num2 )
+echo $(expr $num1 \* $num2 )
+echo $(expr $num1 / $num2 )
+echo $(expr $num1 % $num2 )
+#!/bin/bash
+num1=20.5
+num2=5
+echo "20.5+5" | bc
+#!/bin/bash
+num1=20.5
+num2=5
+echo "20.5+5" | bc
+echo "20.5-5" | bc
+echo "20.5*5" | bc
+echo "scale=2;20.5/5" | bc
+echo "20.5%5" | bc
+echo "$num1+$num2" | bc
+echo "$num1-$num2" | bc
+echo "$num1*$num2" | bc
+echo "$num1/$num2" | bc
+echo "$num1%$num2" | bc
+num=4
+
+echo "scale=2;sqrt($num)" | bc -l
+echo "scale=2;3^3" | bc -l
+#############----------------------Shell Scripting Tutorial for Beginners 12 - The case statement---------------
+The Case Statement
+The case statement is used to execute statements based on specific values. Often used in place of an if statement, if there are a large number of conditions.
+
+Syntax:
+
+case $var in
+      val1)
+
+            statements;;
+
+      val2)
+
+            statements;;
+
+      *)
+
+            statements;;
+
+esac
+In the above syntax:
+
+Value used can be an expression
+each set of statements must be ended by a pair of semicolons;
+a *) is used to accept any value not matched with list of values
+Example 1 :
+
+#! /bin/bash
+case $# in
+
+4)
+
+echo "Ready to process four files. " ;;
+
+3)
+
+echo "Ready to process three files." ;;
+
+2)
+
+echo "Ready to process two files." ;;
+
+1)
+
+echo  "Ready to process one file." ;;
+
+*)
+
+echo "Invalid number of filenames provided, " ;;
+
+esac
+In the above example, the statement block following the *) case is executed if the $# variable does not match any of the previous cases (4,3,2, or 1).
+A double semicolon indicates the end of the statement block for each case.
+The esac keyword (“case” spelled backward) is used to indicate the end of the case statement.
+After one of the statement blocks in the case statement is executed (such as echo (“Ready to process four files. “), the next statement executed is the line after the esac keyword.
+Example 2 :
+
+#! /bin/bash
+
+vehicle=$1
+
+case $vehicle in
+    "car" )
+        echo "Rent of $vehicle is 100 dollar" ;;
+    "van" )
+        echo "Rent of $vehicle is 80 dollar" ;;
+    "bicycle" )
+        echo "Rent of $vehicle is 5 dollar" ;;
+    "truck" )
+        echo "Rent of $vehicle is 150 dollar" ;;
+    * )
+        echo "Unknown vehicle" ;;
+esac
+Output:
+
+$ ./bash.sh
+Unknown vehicle
+
+$ ./bash.sh car
+Rent of car is 100 dollar
+
+$ ./bash.sh van
+Rent of van is 80 dollar
+Example 3 :
+
+#!/bin/bash
+  echo -n "Enter a number 1 < x < 10: "
+
+  read -r x
+
+      case $x in
+
+            1) echo "Value of x is 1.";;
+
+            2) echo "Value of x is 2.";;
+
+            3) echo "Value of x is 3.";;
+
+            4) echo "Value of x is 4.";;
+
+            5) echo "Value of x is 5.";;
+
+            6) echo "Value of x is 6.";;
+
+            7) echo "Value of x is 7.";;
+
+            8) echo "Value of x is 8.";;
+
+            9) echo "Value of x is 9.";;
+
+            0 | 10) echo "wrong number.";;
+
+            *) echo "Unrecognized value.";;
+
+      esac
+Example 4 :
+
+#! /bin/bash
+
+echo -e "Enter some character : \c"
+read value
+
+
+case $value in
+    [a-z] )
+        echo "User entered $value a to z" ;;
+    [A-Z] )
+        echo "User entered $value A to Z" ;;
+    [0-9] )
+        echo "User entered $value 0 to 9" ;;
+    ? )
+        echo "User entered $value special character" ;;
+    * )
+        echo "Unknown input" ;;
+esac
+Output
+
+test@test$ ./hello.sh 
+Enter some character : f
+User entered f a to z
+test@test$ ./hello.sh 
+Enter some character : K
+User entered K a to z
+test@test$ LANG=C
+test@test$ ./hello.sh 
+Enter some character : K
+User entered K A to Z
+test@test$ ./hello.sh 
+Enter some character : 9
+User entered 9 0 to 9
+test@test$ ./hello.sh 
+Enter some character : 5
+User entered 5 0 to 9
+test@test$ ./hello.sh 
+Enter some character : &
+User entered & special character
+test@test$ ./hello.sh 
+Enter some character : sdsdsdsd
+Unknown input
+[a-z] ) specifies a range which matches any lowercase letter from “a” to “z”
+[A-Z] ) specifies a range which matches any lowercase letter from “A” to “Z”
+[0-9] ) specifies a range which matches any value 0 to 9″ ;;
+? )  Matches a string with exactly one character like a, !, and so on.
+* ) Matches a string with one or more characters (a nonempty string).
+
+
+
+
+
+
+
+
 
 
 
