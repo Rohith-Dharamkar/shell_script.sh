@@ -375,6 +375,7 @@ Subtraction = 15
 Multiplication = 100
 Division = 4
 #!/bin/bash
+####################-----------Shell Scripting Tutorial for Beginners 11 - Floating point math operations in bash | bc Command-----#######
 
 
 
