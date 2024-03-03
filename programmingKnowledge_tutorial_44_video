@@ -575,6 +575,88 @@ Unknown input
 [0-9] ) specifies a range which matches any value 0 to 9″ ;;
 ? )  Matches a string with exactly one character like a, !, and so on.
 * ) Matches a string with one or more characters (a nonempty string).
+--------------------------Shell Scripting Tutorial for Beginners 14 - Array variables----------------
+An array is a variable containing multiple values. Any variable may be used as an array. There is no maximum limit to the size of an array, nor any requirement that member variables be indexed or assigned contiguously. Arrays are zero-based: the first element is indexed with the number 0.
+
+Indirect declaration is done using the following syntax to declare a variable:
+ARRAY[INDEXNR]=value
+#!/bin/bash
+os=('ubuntu' 'windows' 'kali')
+os[3]='mac' #add elements to the array you can add any value with index number we chage and update also number value
+unset os[2] # unset command use to remove an array in for the value
+
+echo "${os[@]}"  # @ use for to print the array
+echo "${os[0]}"  #to print a pacific value in array and give the index number of array
+echo "${!os[@]}" #To print indices and indexes of number
+echi "${#os[@]}" #  symbol used for to print of the length of array example-3
+
+string=dasfsafsadfsfd
+echo "${string[@]}"
+echo "${string[0]}"
+echo "${string[1]}"
+echo "${#sting[@]}"
+-----------------------Shell Scripting Tutorial for Beginners 15 - WHILE Loops-----------------
+Loop is a block of code that is repeated a number of times. The repeating is performed either a pre-determined number of times until a particular condition is satisfied ( while and until loops)
+To provide flexibility to the loop constructs there are also two statements namely break and continue are provided.
+#!/bin/bash
+while [ condition ]    # this is a syntax of while loops condition
+do
+    command1
+    command2
+    command3
+done
+#!/bin/bash
+# while loops
+d=1
+while [ $d -le 10 ] or (( $d <= 10 )) 
+do
+    echo "$d"
+    d=$(( d+1 ))  or (( ++d )) or (( d++ ))
+done
+--------------Shell Scripting Tutorial for Beginners 16 - using sleep and open terminal with WHILE Loops----------------
+Loop is a block of code that is repeated a number of times. The repeating is performed either a pre-determined number of times until a particular condition is satisfied ( while and until loops)
+To provide flexibility to the loop constructs there are also two statements namely break and continue are provided.
+#!/bin/bash
+n=1
+while (( $n <= 10 ))
+do
+      echo "$n"
+      (( ++n ))
+      sleep 2     # use sleep command use to slow down the process
+done
+--------------------------------Shell Scripting Tutorial for Beginners 17 - Read a file content in Bash----------
+How do I read a text file line by line under a Linux or UNIX-like system using BASH shell?
+You can use while..do..done bash loop to read file line by line on a Linux, OSX, or Unix-like system.
+There are basically three ways to read file content using bash.
+1a: While loop: Single line at a time: Input redirection.
+1b: While loop: Single line at a time:
+Open the file, read from a file descriptor (in this case file descriptor #4).
+2: While loop:  Read file into single variable and parse.
+#!/bin/bash
+cat hello.sh | While read p
+do
+   echo $p
+done
+#!/bin/bash
+while read p    # this while loop use to read the file command p use to redirect
+do
+  echo $p
+done < hello.sh   # this is a file name
+#!/bin/bash
+cat hello.sh | while read p         # read the file in a singal variable and print it
+do
+  echo $p
+done                             
+#!/bin/bash
+while IFS=' ' read -r line  # flag and minus are prevents the blackslash escape from being interpreted right so this flag is going interpreted right so this flag is going to prevent backless escapes from being interpreted
+do
+  echo $line
+done < hello.sh
+#!/bin/bash
+while IFS=' ' read -r line
+do
+  echo $line
+done < hello.sh
 
 
 
