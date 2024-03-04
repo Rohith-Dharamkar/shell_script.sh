@@ -657,6 +657,34 @@ while IFS=' ' read -r line
 do
   echo $line
 done < hello.sh
+---------------------------Shell Scripting Tutorial for Beginners 18 - UNTIL loop-----------------------
+The until structure is very similar to the while structure. The until structure loops until the condition is true. So basically it is “until this condition is true, do this”.
+#!/bin/bash
+until [ condition ]  #syntax of until loop
+do
+   command1
+   command2
+   command3
+   ......
+   command5
+   commandN
+done
+#!/bin/bash
+n=1
+until [ $n -gt 10 ]
+do
+  echo $n
+  sleep 2
+  n=$(( n+1 ))
+done
+#!/bin/bash
+n=1
+until (( $n > 10 ))
+do
+  echo $n
+  sleep 2
+  n=$(( n+1 ))
+done
 
 
 
