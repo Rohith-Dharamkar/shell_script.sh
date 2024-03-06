@@ -685,7 +685,68 @@ do
   sleep 2
   n=$(( n+1 ))
 done
-
+---------------------------Shell Scripting Tutorial for Beginners 19 - FOR loop-------------------
+for Loops:   Sometimes we want to run a command (or group of commands) over and over.   This is called iteration, repetition, or looping.   The most commonly used shell repetition structure is the for loop, which has the general form: 
+for variable in list
+do
+  command(s) 
+done
+#!/bin/bash
+for variable in 1 2 3 4 5 . . .N
+do
+    command1
+    command2
+    command3
+done
+-------------######OR######--------------
+for variable in file1 file2 file3
+do
+    command1 on $variable
+    command2
+    commandN
+done
+------------------#######OR######---------
+for OUTPUT in $(Linux-or-Unix-command-here)
+do
+   command1 on $OUTPUT
+   command2 on $OUTPUT
+   commandN
+done
+---------------########OR########---------
+for (( EXP1; EXP2; EXP3 ))
+do
+   command1
+   command2
+   command3
+done
+#!/bin/bash
+for i in {1..100}
+do
+    echo $i
+done
+#!/bin/bash
+for i in 1 2 3 4 5
+do 
+   echo $i
+done
+#!/bin/bash
+for i in {1..100..2} #{START..END..INCREMENT}
+do
+    echo $i
+done
+#!/bin/bash
+for (( i=0; i<5; i++ )) #i=equal to zero
+do                      #i=is less than five
+   echo $i              #i=increase the value of i
+done
+-------------------------Shell Scripting Tutorial for Beginners 20 - use FOR loop to execute commands------------
+FOR loop to execute commands. A list of commands is executed for each value in the list.
+for Loops:   Sometimes we want to run a command (or group of commands) over and over.   This is called iteration, repetition, or looping.   The most commonly used shell repetition structure is the for loop, which has the general form: 
+for variable in list
+do
+  command(s) 
+done
+#!/bin/bash
 
 
 
