@@ -747,12 +747,97 @@ do
   command(s) 
 done
 #!/bin/bash
-
-
-
-
-
-
+for command in
+do 
+  echo $command 
+done
+#!/bin/bash
+for command in ls pwd date
+do
+  echo "--------------$command-------------"
+  $command
+done
+#!/bin/bash
+for item in *  # AStrix i can iteration of a file and directory and AStris is a wald card
+do
+  if [ -d $item ] # -d all directory
+  then
+     echo $item
+  fi
+done
+#!/bin/bash
+for item in *  # AStrix i can iteration of a file and directory
+do
+  if [ -d $item ] # -d all directory
+  then
+     echo $item
+  fi
+done
+---------------------------Shell Scripting Tutorial for Beginners 21 - Select loop------------
+SELECT COMMAND Constructs simple menu from word list. It Allows user to enter a number instead of a word. So User enters sequence number corresponding to the word.
+--------------------------------------------
+Syntax:
+select WORD in LIST     
+do           
+RESPECTIVE-COMMANDS
+done 
+--------------------------------------------
+Loops until end of input, i.e. ^d  (or ^c)
+#!/bin/bash
+select varName in list     # basic syntax of select loop
+do
+   command1
+   command2
+   -------
+   -------
+   commandN
+done
+#!/bin/bash
+select name in mark john tom ben
+do
+   echo "$name selected"
+done
+#!/bin/bash
+select name in mark john tom ben
+do
+   case $name in
+    mark)
+      echo mark selected
+      ;;
+    john)
+      echo john selected
+      ;;
+    tom)
+      echo tom selected
+      ;;
+    ben)
+      echo ben selected
+      ;;
+    *)
+     echo "Error please provide the no.between 1..4"
+   esac
+done
+---------------Shell Scripting Tutorial for Beginners 22 - Break and continue--------------
+for (( i=1 ; i<=10 ; i++ ))
+do
+   if [ $i -eg 3 -o $i -eg 6 ]
+   then
+     continue
+   fi
+   echo "$i"
+done
+#!/bin/bash
+for (( i=1 ; i<=10 ; i++ ))
+do
+   if [ $i -qt 5 ]
+   then
+      break
+   fi
+    echo "$i"
+done
+-------------------------Shell Scripting Tutorial for Beginners 23 - Functions-----------------
+Functions :
+Functions make scripts easier to maintain. Basically it breaks up the program into smaller pieces. A function performs an action defined by you, and it can return a value if you wish.
 
 
 
