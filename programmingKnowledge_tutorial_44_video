@@ -838,8 +838,38 @@ done
 -------------------------Shell Scripting Tutorial for Beginners 23 - Functions-----------------
 Functions :
 Functions make scripts easier to maintain. Basically it breaks up the program into smaller pieces. A function performs an action defined by you, and it can return a value if you wish.
-
-
+#!/bin/bash
+function name() {   # first way of the function
+  command
+} 
+#!/bin/bash
+name () {    # second way of function
+   command
+}
+#!/bin/bash
+function print(){
+  echo $1 $2 $3  # this is take argument 
+}
+#!/bin/bash
+quit () {
+   exit
+}
+print Hello world again   # calling a function with argument
+echo "foo"
+quit
+----------------------------Shell Scripting Tutorial for Beginners 24 - Local variables----------------------
+LOCAL VARIABLES IN FUNCTIONS : 
+Variables defined within functions are global,   i.e. their values are known throughout the entire shell program keyword “local” inside a function definition makes referenced variables “local” to that function. Local variables can be created by using the keyword local.
+function print(){
+  local name=$1
+  echo "the name is $name"
+}
+name="Tom"
+echo "the name is $name : Before"
+print max
+echo "the name is $name : After"
+---------------------------Shell Scripting Tutorial for Beginners 25 - Function Example-----------------
+n this video we will create an example. This example shell script will demonstrate the concept of Bash shell functions. we will show to check if a file exists or not using function.
 
 
 
