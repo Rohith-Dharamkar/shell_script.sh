@@ -892,10 +892,83 @@ fi
 ----------------------------Shell Scripting Tutorial for Beginners 26 - Readonly command-----------------
 readonly command can be used to to make you variables and functions read only that means you cannot change the value of variables or you can not overwrite a function.
 #!/bin/bash
+var=31
+readonly var
+var=51
+echo "var => $var"
+hello() {
+   echo "hello world"
+}
+readonly -f  hello  # -f flag use in function to do readonly
+hello() {
+   echo "hello world again"
+}
+----------------------------Shell Scripting Tutorial for Beginners 27 - Signals and Traps---------------
+The trap command provides the script to captures an interrupt (signal) and then clean it up within the script.
 
+ First the signals described in the original POSIX.1-1990 standard.
 
-
-
+       Signal     Value     Action   Comment
+-------------------------------------------------------------------------------------------       
+       SIGHUP        1       Term    Hangup detected on controlling terminal
+                                     or death of controlling process
+       SIGINT          2       Term    Interrupt from keyboard
+       SIGQUIT       3       Core    Quit from keyboard
+       SIGILL          4       Core    Illegal Instruction
+       SIGABRT      6       Core    Abort signal from abort(3)
+       SIGFPE         8       Core    Floating-point exception
+       SIGKILL        9       Term    Kill signal
+       SIGSEGV      11       Core    Invalid memory reference
+       SIGPIPE       13       Term    Broken pipe
+       SIGALRM     14       Term    Timer signal from alarm(2)
+       SIGTERM     15       Term    Termination signal
+       SIGUSR1      30,10,16    Term    User-defined signal 1
+       SIGUSR2      31,12,17    Term    User-defined signal 2
+       SIGCHLD     20,17,18    Ign     Child stopped or terminated
+       SIGCONT     19,18,25    Cont    Continue if stopped
+       SIGSTOP     17,19,23    Stop    Stop process
+       SIGTSTP     18,20,24    Stop    Stop typed at terminal
+       SIGTTIN      21,21,26    Stop    Terminal input for background process
+       SIGTTOU   22,22,27    Stop    Terminal output for background process
+#!/bin/bash
+echo "pid is $$"   # $$ two dollor flag use to see the process id 
+while (( COUNT < 10 ))
+do
+   sleep 10
+   (( COUNT++ ))
+   echo $COUNT
+done
+exit 0
+#!/bin/bash
+trap "echo Exit command is detected" 0
+echo "Hello world"
+exit 0
+#!/bin/bash
+trap "echo Exit command is detected" SIGKILL SIGSTOP
+echo "PID is $$"
+while (( COUNT < 10 ))
+do
+    sleep 10
+    (( COUNT++ ))
+    echo $COUNT
+done
+exit 0
+#!/bin/bash
+file=/Users/rohith/raju.txt  # this is a file of the path delete the file
+trap "rm -f $file; exit" 0 2 15  #we can use trap with any command 
+echo "PID is $$"
+while (( COUNT < 10 ))
+do
+    sleep 10
+    (( COUNT++ ))
+    echo $COUNT
+done
+exit 0
+-------------------------Shell Scripting Tutorial for Beginners 28 - How to debug a bash script------------
+bash -x for dubug of bash script   #bash -x ./hello.sh
+-x
+Set  -x start the dubug 
+set +x  stop the dubug
 
 
 
